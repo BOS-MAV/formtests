@@ -13,34 +13,18 @@
             $(document).ready(function() {
                 $("#form").alpaca({
                     "data": {
-                        "MVPProject#": "",
-                        "VACentralIRB#": "",
-                        "ProjectTitle": "",
-                        "PrimaryPI":"",
-                        "ApprovedSites":"",
-                        "personnel":[{
-                        "Name":"",
-                        "Domain/NTUserName":"",
-                        "ResearchCredentialed":"",
-                        "Facility":"",
-                        "ProjectRole":"",
-                        "DataAccessReq":"",
-                        "Vinci":"",
-                        "GenISIS":"",
-                        "MVPROBComp":"",
-                        "NDICDAComp":"",
-                        "CMSApproved":"",
-                        "VitalROB":"",
-                        "MVPDAAPPROVED":""}]
+                        "name": "Diego Maradona",
+                        "feedback": "Very impressive.",
+                        "ranking": "excellent"
                     },
                     "schema": {
-                        "title":"MVPProjectNumber",
-                        "description":"MVP Project Number",
+                        "title":"User Feedback",
+                        "description":"What do you think about Alpaca?",
                         "type":"object",
                         "properties": {
-                            "MVPProject#": {
+                            "name": {
                                 "type":"string",
-                                "title":"MVPProject#",
+                                "title":"Name",
                                 "required":true
                             },
                             "feedback": {
