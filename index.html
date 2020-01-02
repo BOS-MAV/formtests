@@ -13,18 +13,34 @@
             $(document).ready(function() {
                 $("#form").alpaca({
                     "data": {
-                        "name": "Diego Maradona",
-                        "feedback": "Very impressive.",
-                        "ranking": "excellent"
+                        "MVPProject#": "",
+                        "VACentralIRB#": "",
+                        "ProjectTitle": "",
+                        "PrimaryPI":"",
+                        "ApprovedSites":"",
+                        "personnel":[{
+                        "Name":"",
+                        "Domain/NTUserName":"",
+                        "ResearchCredentialed":"",
+                        "Facility":"",
+                        "ProjectRole":"",
+                        "DataAccessReq":"",
+                        "Vinci":"",
+                        "GenISIS":"",
+                        "MVPROBComp":"",
+                        "NDICDAComp":"",
+                        "CMSApproved":"",
+                        "VitalROB":"",
+                        "MVPDAAPPROVED":""}]
                     },
                     "schema": {
-                        "title":"User Feedback",
-                        "description":"What do you think about Alpaca?",
+                        "title":"MVPProjectNumber",
+                        "description":"MVP Project Number",
                         "type":"object",
                         "properties": {
-                            "name": {
+                            "MVPProject#": {
                                 "type":"string",
-                                "title":"Name",
+                                "title":"MVPProject#",
                                 "required":true
                             },
                             "feedback": {
@@ -50,8 +66,11 @@
                                     "title": "Send Form Data",
                                     "click": function() {
                                         var val = this.getValue();
-     
-                                            window.location.href ="/701_03.html"
+                                        if (this.isValid(true)) {
+                                            alert("Valid value: " + JSON.stringify(val, null, "  "));
+                                            this.ajaxSubmit().done(function() {
+                                                alert("Posted!");
+                                            });
                                         } else {
                                             alert("Invalid value: " + JSON.stringify(val, null, "  "));
                                         }
