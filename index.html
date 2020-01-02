@@ -46,7 +46,20 @@
                                 "method":"post"
                             },
                             "buttons":{
-                                "submit":{}
+                                "submit":{
+                                    "title": "Send Form Data",
+                                    "click": function() {
+                                        var val = this.getValue();
+                                        if (this.isValid(true)) {
+                                            alert("Valid value: " + JSON.stringify(val, null, "  "));
+                                            this.ajaxSubmit().done(function() {
+                                                alert("Posted!");
+                                            });
+                                        } else {
+                                            alert("Invalid value: " + JSON.stringify(val, null, "  "));
+                                        }
+                                    }
+                                }
                             }
                         },
                         "helper": "Tell us what you think about Alpaca!",
@@ -71,7 +84,9 @@
                             }
                         }
                     },
-                    "view" : "bootstrap-edit"
+                    "postRender": function(control) {
+                        control.childrenByPropertyId["name"].getFieldEl().css("background-color", "lightgreen");
+                    }
                 });
             });
         </script>
