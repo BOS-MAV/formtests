@@ -49,11 +49,7 @@
                                 "submit":{
                                     "title": "Send Form Data",
                                     "click": function() {
-                                        var val = this.getValue();
-                                        if (this.isValid(true)) {
-                                            alert("Valid value: " + JSON.stringify(val, null, "  "));
-                                            this.ajaxSubmit().done(function() {
-                                                alert("Posted!");
+                                            window.location.href = "/formtests/701_03.html"
                                             });
                                         } else {
                                             alert("Invalid value: " + JSON.stringify(val, null, "  "));
