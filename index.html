@@ -12,6 +12,11 @@
         <script type="text/javascript">
             $(document).ready(function() {
                 $("#form").alpaca({
+                    "data": {
+                        "name": "Diego Maradona",
+                        "feedback": "Very impressive.",
+                        "ranking": "excellent"
+                    },
                     "schema": {
                         "title":"User Feedback",
                         "description":"What do you think about Alpaca?",
@@ -19,7 +24,8 @@
                         "properties": {
                             "name": {
                                 "type":"string",
-                                "title":"Name"
+                                "title":"Name",
+                                "required":true
                             },
                             "feedback": {
                                 "type":"string",
@@ -28,20 +34,30 @@
                             "ranking": {
                                 "type":"string",
                                 "title":"Ranking",
-                                "enum":['excellent','ok','so so']
+                                "enum":['excellent','ok','so so'],
+                                "required":true
                             }
                         }
                     },
                     "options": {
+                        "form":{
+                            "attributes":{
+                                "action":"http://httpbin.org/post",
+                                "method":"post"
+                            },
+                            "buttons":{
+                                "submit":{}
+                            }
+                        },
                         "helper": "Tell us what you think about Alpaca!",
                         "fields": {
                             "name": {
                                 "size": 20,
-                                "helper": "Please enter your name.",
-                                "placeholder": "Enter your name"
+                                "helper": "Please enter your name."
                             },
                             "feedback" : {
                                 "type": "textarea",
+                                "name": "your_feedback",
                                 "rows": 5,
                                 "cols": 40,
                                 "helper": "Please enter your feedback."
@@ -49,12 +65,14 @@
                             "ranking": {
                                 "type": "select",
                                 "helper": "Select your ranking.",
-                                "optionLabels": ["Awesome!", "It's Ok", "Hmm..."]
+                                "optionLabels": ["Awesome!",
+                                    "It's Ok",
+                                    "Hmm..."]
                             }
                         }
-                    }
+                    },
+                    "view" : "bootstrap-edit"
                 });
             });
         </script>
     </body>
-</html>
